@@ -21,6 +21,13 @@ Festify is a free Spotify-powered app that lets your guests choose which music s
 
 Festify loads configuration variables though JS / TS / JSON files included in the build process. All following paths are relative to the repository root.
 
+- `src/admins.ts`: A list of allowed admins which may create parties, those emails need to be the email of their Spotify accounts:
+  ```js
+  export default [
+    "alias@domain.tld"
+  ];
+  ```
+
 - `common.config.js`: This file includes common configuration values that don't deserve their own file. Currently this is the Sentry URL and the Fanart.tv API key. It looks like this:
     ```js
     export const FANART_TV_API_KEY = "FANART_API_KEY_HERE";

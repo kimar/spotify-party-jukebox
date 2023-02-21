@@ -7,8 +7,8 @@ import { html } from 'lit-html';
 import { triggerOAuthLogin } from '../actions/auth';
 import { createPartyStart, joinPartyStart as joinParty } from '../actions/party-data';
 import { changePartyId } from '../actions/view-home';
+import admins from "../admins";
 import { State } from '../state';
-import festifyLogo from '../util/festify-logo';
 import sharedStyles from '../util/shared-styles';
 
 interface HomeViewProps {
@@ -51,8 +51,8 @@ const LowerButton = (props: HomeViewProps & HomeViewDispatch) => {
         `;
     } else {
         return html`
-            <paper-button raised @click=${props.loginWithSpotify}>
-                Login to create Party
+            <paper-button @click=${props.loginWithSpotify}>
+                Admin-Login
             </paper-button>
         `;
     }
@@ -112,10 +112,6 @@ const HomeView = (props: HomeViewProps & HomeViewDispatch) => html`
         }
     </style>
 
-    <header>
-        ${festifyLogo}
-    </header>
-
     <p>Festify lets your guests choose which music should be played using their smartphones.</p>
 
     <main>
@@ -146,7 +142,8 @@ const mapStateToProps = (state: State): HomeViewProps => ({
     authorizationInProgress: state.user.credentials.spotify.authorizing,
     authorizedAndPremium: Boolean(
         state.user.credentials.spotify.user &&
-            state.user.credentials.spotify.user.product === 'premium',
+            state.user.credentials.spotify.user.product === 'premium' &&
+            admins.indexOf(state.user.credentials.spotify.user.email) >= 0,
     ),
     authStatusKnown: state.user.credentials.spotify.statusKnown,
     playerCompatible: state.player.isCompatible,

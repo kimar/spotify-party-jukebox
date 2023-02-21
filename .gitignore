@@ -30,6 +30,9 @@ spotify.config.js
 service-account.json
 functions/spotify.config.ts
 
+# Allowed admins
+src/admins.ts
+
 # IDE
 .idea/
 .vscode/
