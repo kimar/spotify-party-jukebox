@@ -112,7 +112,7 @@ const HomeView = (props: HomeViewProps & HomeViewDispatch) => html`
         }
     </style>
 
-    <p>Festify lets your guests choose which music should be played using their smartphones.</p>
+    <p>Please enter the Party Code to join and add or vote for songs.</p>
 
     <main>
         <paper-input
