@@ -138,8 +138,6 @@ const QueueDrawer = (props: QueueDrawerProps & QueueDrawerDispatch) => html`
     </style>
 
     <header>
-        ${festifyLogo}
-
         <div
             class="user-menu hidable ${props.username ? '' : 'hidden'}"
             @click=${props.toggleUserMenu}
@@ -177,20 +175,6 @@ const QueueDrawer = (props: QueueDrawerProps & QueueDrawerDispatch) => html`
                   </a>
               `
             : null}
-        ${!props.isOwner
-            ? html`
-                  <a
-                      href="#"
-                      @click=${ev => {
-                          ev.preventDefault();
-                          props.enterAdmin();
-                      }}
-                  >
-                      <iron-icon icon="festify:settings-remote"></iron-icon>
-                      Login for Admin Mode
-                  </a>
-              `
-            : null}
 
         <a
             href="${props.shareRoute}"
@@ -200,14 +184,12 @@ const QueueDrawer = (props: QueueDrawerProps & QueueDrawerDispatch) => html`
             <iron-icon icon="festify:share"></iron-icon>
             Share
         </a>
-        <a href="${props.tvRoute}" @click=${props.handleClick}>
-            <iron-icon icon="festify:tv"></iron-icon>
-            TV Mode
-        </a>
-        <a href="https://festify.rocks/" target="_blank">
-            <iron-icon icon="festify:home"></iron-icon>
-            Festify Homepage
-        </a>
+        ${props.isOwner ? html`
+            <a href="${props.tvRoute}" @click=${props.handleClick}>
+                <iron-icon icon="festify:tv"></iron-icon>
+                TV Mode
+            </a>`
+        : null}
         <a href="/" @click=${props.handleClick}>
             <iron-icon icon="festify:cancel"></iron-icon>
             Exit Party
@@ -225,13 +207,9 @@ const QueueDrawer = (props: QueueDrawerProps & QueueDrawerDispatch) => html`
             <iron-icon icon="festify:exit-to-app"></iron-icon>
             Logout
         </a>
-        <a href="https://festify.rocks/disclaimer" target="_blank">
+        <a href="https://github.com/kimar/festify-app" target="_blank">
             <iron-icon icon="festify:gavel"></iron-icon>
-            Legal
-        </a>
-        <a href="https://festify.rocks/privacy" target="_blank">
-            <iron-icon icon="festify:verified-user"></iron-icon>
-            Privacy
+            Sourcecode
         </a>
     </div>
 `;
