@@ -2,6 +2,8 @@
 
 Spotify Jukebox is a free Spotify-powered app that lets your guests choose which music should be played using their smartphones.
 
+This is a fork of the great [Festify App](https://github.com/festify/app). Google Analytics as well as assets which might be related to copyrights (such as the name, icon etc.) have been removed.
+
 ## Building
 
 ### Dependencies
@@ -62,14 +64,6 @@ The `package.json` contains all necessary commands for building This app.
 - `lint`: Lints the TS sources with tslint.
 - `prepare-env`: Used in CI environments to load environment files from branch-name-suffixed environment variables.
 - `serve`: Starts the rollup dev-server serving a local instance of this app on port 3000. Also supports live-reloading. Ensure you deploy the project to firebase before using the dev server because this app depends on cloud functions to be present!
-
-## Contributing
-
-1. Fork it! :octocat:
-1. Create your feature branch: `git checkout -b my-improvement`
-1. Make your changes and test them!
-1. Commit & push your changes
-1. Submit a pull request :rocket:
 
 ## License
 
