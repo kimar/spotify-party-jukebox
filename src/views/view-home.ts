@@ -45,14 +45,15 @@ const LowerButton = (props: HomeViewProps & HomeViewDispatch) => {
         `;
     } else if (props.authorizationInProgress || !props.authStatusKnown) {
         return html`
-            <paper-button raised disabled>
+            <paper-button raised disabled class='clear'>
                 Authorizing...
             </paper-button>
         `;
     } else {
         return html`
-            <paper-button class='github' @click=${props.loginWithSpotify}>
-                Admin-Login
+            <paper-button class='clear' @click=${props.loginWithSpotify}>
+                <iron-icon icon='festify:verified-user'></iron-icon>
+                &nbsp;Admin-Login
             </paper-button>
         `;
     }
@@ -133,9 +134,9 @@ const HomeView = (props: HomeViewProps & HomeViewDispatch) => html`
 
         ${props.playerCompatible ? LowerButton(props) : null}
 
-        <paper-button id="middle" class="github" @click=${() => {window.location.href = "https://github.com/kimar/jukebox-app"; }}>
+        <paper-button id="middle" class="clear" @click=${() => {window.location.href = "https://github.com/kimar/jukebox-app"; }}>
             <iron-icon icon="social:github"></iron-icon>
-            Sourcecode
+            &nbsp;Sourcecode
         </paper-button>
     </main>
 `;
