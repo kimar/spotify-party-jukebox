@@ -16,7 +16,6 @@ import {
 } from '../selectors/routes';
 import { currentUsernameSelector } from '../selectors/users';
 import { State } from '../state';
-import festifyLogo from '../util/festify-logo';
 import sharedStyles from '../util/shared-styles';
 
 interface QueueDrawerProps {
@@ -190,6 +189,7 @@ const QueueDrawer = (props: QueueDrawerProps & QueueDrawerDispatch) => html`
                 TV Mode
             </a>`
         : null}
+
         <a href="/" @click=${props.handleClick}>
             <iron-icon icon="festify:cancel"></iron-icon>
             Exit Party
@@ -206,10 +206,6 @@ const QueueDrawer = (props: QueueDrawerProps & QueueDrawerDispatch) => html`
         >
             <iron-icon icon="festify:exit-to-app"></iron-icon>
             Logout
-        </a>
-        <a href="https://github.com/kimar/festify-app" target="_blank">
-            <iron-icon icon="festify:gavel"></iron-icon>
-            Sourcecode
         </a>
     </div>
 `;

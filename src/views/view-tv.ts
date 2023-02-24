@@ -13,7 +13,6 @@ import {
     singleMetadataSelector,
 } from '../selectors/track';
 import { Metadata, Party, State, Track } from '../state';
-import festifyLogo from '../util/festify-logo';
 import sharedStyles from '../util/shared-styles';
 
 import './tv-track';
@@ -80,7 +79,6 @@ const Body = (props: ViewTvProps) => {
         return html`
             <div class="no-tracks">
                 <div class="header">
-                    ${festifyLogo}
                     <h1>Loading...</h1>
                 </div>
             </div>
@@ -100,7 +98,6 @@ const Body = (props: ViewTvProps) => {
         return html`
             <div class="no-tracks">
                 <div class="header">
-                    ${festifyLogo}
                     <h1>Oh, no!</h1>
                 </div>
                 <h2>There are no tracks in the queue right now.</h2>

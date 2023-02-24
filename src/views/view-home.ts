@@ -51,7 +51,7 @@ const LowerButton = (props: HomeViewProps & HomeViewDispatch) => {
         `;
     } else {
         return html`
-            <paper-button @click=${props.loginWithSpotify}>
+            <paper-button class='github' @click=${props.loginWithSpotify}>
                 Admin-Login
             </paper-button>
         `;
@@ -71,8 +71,7 @@ const HomeView = (props: HomeViewProps & HomeViewDispatch) => html`
             padding: 0 10px;
             text-align: center;
 
-            background: linear-gradient(rgba(28, 31, 36, 0.9), rgba(28, 31, 36, 0.9)),
-                url(/home-bg.jpg) no-repeat center;
+            background: linear-gradient(rgba(28, 31, 36, 0.9), rgba(28, 31, 36, 0.9));
             background-size: cover;
 
             --paper-input-container-input: {
@@ -133,6 +132,11 @@ const HomeView = (props: HomeViewProps & HomeViewDispatch) => html`
         </paper-button>
 
         ${props.playerCompatible ? LowerButton(props) : null}
+
+        <paper-button id="middle" class="github" @click=${() => {window.location.href = "https://github.com/kimar/jukebox-app"; }}>
+            <iron-icon icon="social:github"></iron-icon>
+            Sourcecode
+        </paper-button>
     </main>
 `;
 /* tslint:enable */

@@ -1,25 +1,19 @@
-<a href="https://festify.rocks/">
-    <img title="Festify Logo" height="150" src="https://festify.rocks/img/festify-logo.svg">
-</a>
+# Spotify Jukebox
 
-# Festify
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/Festify/app.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.org/Festify/app.svg?branch=develop)](https://travis-ci.org/Festify/app)
-
-Festify is a free Spotify-powered app that lets your guests choose which music should be played using their smartphones. [festify.rocks](https://festify.rocks/)
+Spotify Jukebox is a free Spotify-powered app that lets your guests choose which music should be played using their smartphones.
 
 ## Building
 
 ### Dependencies
 
-1. [nodejs](https://nodejs.org), [TypeScript](https://typescriptlang.org) and [yarn](https://yarnpkg.com): Festify is written in TypeScript for better scalability and fewer bugs. We use yarn for package management.
-1. [Firebase](https://firebase.google.com): Festify is built upon Firebase Realtime Database and Firebase Cloud Functions. Set up a _dedicated and paid_ Firebase project. For user management, you need to enable at least [anonymous authentication](https://firebase.google.com/docs/auth/web/anonymous-auth), and if you want cheat-prevention to work, also authentication with GitHub, Facebook, Twitter, and Google+. In that case, you also need to set up and register the respective app / developer accounts with these services.
-1. [Spotify](https://beta.developer.spotify.com/): Festify plays music from Spotify. Set up a Spotify Developer Application (you need a Spotify Premium account) and configure the OAuth redirect URL. Usually at least `http://localhost:3000` is needed for a dev-environment. 3000 is the port the dev-server started with `yarn serve` runs on, but this can be any port you like, if you configure the dev server accordingly.
-1. [Fanart.tv](https://fanart.tv) & [Sentry](https://sentry.io): Festify displays Fanart from fanart.tv in the TV Mode and uses Sentry for error reporting. You require an account for both services.
+1. [nodejs](https://nodejs.org), [TypeScript](https://typescriptlang.org) and [yarn](https://yarnpkg.com): This app is written in TypeScript for better scalability and fewer bugs. We use yarn for package management.
+1. [Firebase](https://firebase.google.com): This app is built upon Firebase Realtime Database and Firebase Cloud Functions. Set up a _dedicated and paid_ Firebase project. For user management, you need to enable at least [anonymous authentication](https://firebase.google.com/docs/auth/web/anonymous-auth), and if you want cheat-prevention to work, also authentication with GitHub, Facebook, Twitter, and Google+. In that case, you also need to set up and register the respective app / developer accounts with these services.
+1. [Spotify](https://beta.developer.spotify.com/): This app plays music from Spotify. Set up a Spotify Developer Application (you need a Spotify Premium account) and configure the OAuth redirect URL. Usually at least `http://localhost:3000` is needed for a dev-environment. 3000 is the port the dev-server started with `yarn serve` runs on, but this can be any port you like, if you configure the dev server accordingly.
+1. [Fanart.tv](https://fanart.tv) & [Sentry](https://sentry.io): This app displays Fanart from fanart.tv in the TV Mode and uses Sentry for error reporting. You require an account for both services.
 
 ### Environment Files
 
-Festify loads configuration variables though JS / TS / JSON files included in the build process. All following paths are relative to the repository root.
+This app loads configuration variables though JS / TS / JSON files included in the build process. All following paths are relative to the repository root.
 
 - `src/admins.ts`: A list of allowed admins which may create parties, those emails need to be the email of their Spotify accounts:
   ```js
@@ -62,12 +56,12 @@ Since all config values (except for the `service-account.json`) are loaded throu
 
 ### Building & Serving
 
-The `package.json` contains all necessary commands for building Festify.
-- `build`<a name="build-festify"></a>: Compiles the TypeScript to JS and bundles all JS to a single file. You can then deploy the files in `/build` to a webserver of choice to run Festify.
+The `package.json` contains all necessary commands for building This app.
+- `build`: Compiles the TypeScript to JS and bundles all JS to a single file. You can then deploy the files in `/build` to a webserver of choice to run this app.
 - `fix`: Attempts to automatically fix linter errors.
 - `lint`: Lints the TS sources with tslint.
 - `prepare-env`: Used in CI environments to load environment files from branch-name-suffixed environment variables.
-- `serve`: Starts the rollup dev-server serving a local instance of Festify on port 3000. Also supports live-reloading. Ensure you deploy the project to firebase before using the dev server because Festify depends on cloud functions to be present!
+- `serve`: Starts the rollup dev-server serving a local instance of this app on port 3000. Also supports live-reloading. Ensure you deploy the project to firebase before using the dev server because this app depends on cloud functions to be present!
 
 ## Contributing
 
@@ -80,9 +74,3 @@ The `package.json` contains all necessary commands for building Festify.
 ## License
 
 LGPLv3
-
-## Sponsors
-
-These people helped us bring Festify to life. Thank you!
-
-<a href="https://browserstack.com/"><img title="BrowserStack" src="https://festify.rocks/img/sponsors/browserstack.svg" width="400"></a>

@@ -1,6 +1,6 @@
 {
-  "name": "Festify for Guests",
-  "short_name": "Festify Guests",
+  "name": "Jukebox",
+  "short_name": "Jukebox",
   "start_url": "/?homescreen=1",
   "display": "standalone",
   "theme_color": "#212121",

@@ -1,6 +1,6 @@
 {
-  "name": "politics",
-  "description": "Festify voting worker",
+  "name": "voting-worker",
+  "description": "Voting worker",
   "dependencies": {
     "firebase-admin": "11",
     "firebase-functions": "^4.2.1",
