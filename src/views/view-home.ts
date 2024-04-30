@@ -7,7 +7,7 @@ import { html } from 'lit-html';
 import { triggerOAuthLogin } from '../actions/auth';
 import { createPartyStart, joinPartyStart as joinParty } from '../actions/party-data';
 import { changePartyId } from '../actions/view-home';
-import admins from "../admins";
+import admins from '../admins';
 import { State } from '../state';
 import sharedStyles from '../util/shared-styles';
 
@@ -32,27 +32,17 @@ interface HomeViewDispatch {
 
 const LowerButton = (props: HomeViewProps & HomeViewDispatch) => {
     if (props.partyCreationInProgress) {
-        return html`
-            <paper-button raised disabled>
-                Creating...
-            </paper-button>
-        `;
+        return html` <paper-button raised disabled> Creating... </paper-button> `;
     } else if (props.authorizedAndPremium) {
         return html`
-            <paper-button raised @click=${props.createParty}>
-                Create Party
-            </paper-button>
+            <paper-button raised @click=${props.createParty}> Create Party </paper-button>
         `;
     } else if (props.authorizationInProgress || !props.authStatusKnown) {
-        return html`
-            <paper-button raised disabled class='clear'>
-                Authorizing...
-            </paper-button>
-        `;
+        return html` <paper-button raised disabled class="clear"> Authorizing... </paper-button> `;
     } else {
         return html`
-            <paper-button class='clear' @click=${props.loginWithSpotify}>
-                <iron-icon icon='festify:verified-user'></iron-icon>
+            <paper-button class="clear" @click=${props.loginWithSpotify}>
+                <iron-icon icon="festify:verified-user"></iron-icon>
                 &nbsp;Admin-Login
             </paper-button>
         `;
@@ -118,7 +108,7 @@ const HomeView = (props: HomeViewProps & HomeViewDispatch) => html`
         <paper-input
             label="Party Code"
             type="tel"
-            @input=${ev => props.changePartyId((ev.target as HTMLInputElement).value)}
+            @input=${(ev) => props.changePartyId((ev.target as HTMLInputElement).value)}
             on-keypress="${(ev: KeyboardEvent) => {
                 if (props.partyIdValid && ev.key === 'Enter') {
                     props.joinParty();
@@ -134,7 +124,13 @@ const HomeView = (props: HomeViewProps & HomeViewDispatch) => html`
 
         ${props.playerCompatible ? LowerButton(props) : null}
 
-        <paper-button id="middle" class="clear" @click=${() => {window.location.href = "https://github.com/kimar/jukebox-app"; }}>
+        <paper-button
+            id="middle"
+            class="clear"
+            @click=${() => {
+                window.location.href = 'https://github.com/kimar/jukebox-app';
+            }}
+        >
             <iron-icon icon="social:github"></iron-icon>
             &nbsp;Sourcecode
         </paper-button>
@@ -148,7 +144,8 @@ const mapStateToProps = (state: State): HomeViewProps => ({
     authorizedAndPremium: Boolean(
         state.user.credentials.spotify.user &&
             state.user.credentials.spotify.user.product === 'premium' &&
-            admins.indexOf(state.user.credentials.spotify.user.email) >= 0,
+            admins.map((admin) => atob(admin)).indexOf(state.user.credentials.spotify.user.email) >=
+                0,
     ),
     authStatusKnown: state.user.credentials.spotify.statusKnown,
     playerCompatible: state.player.isCompatible,

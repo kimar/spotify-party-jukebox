@@ -17,11 +17,20 @@ This is a fork of the great [Festify App](https://github.com/festify/app). Googl
 
 This app loads configuration variables though JS / TS / JSON files included in the build process. All following paths are relative to the repository root.
 
--   `src/admins.ts`: A list of allowed admins which may create parties, those emails need to be the email of their Spotify accounts:
+-   `src/admins.ts`: A list of allowed admins which may create parties, those emails need to be the email of their Spotify accounts encoded using Base64:
 
     ```js
-    export default ['alias@domain.tld'];
+    export default ['YWxpYXNAZG9tYWluLnRsZCAtbgo='];
     ```
+
+    You can encode your email using Base64 using the `base64` command line tool, e.g.:
+
+    ```bash
+    $ echo "alias@domain.tld" -n | base64
+    ➜ YWxpYXNAZG9tYWluLnRsZCAtbgo=
+    ```
+
+    **Please note:** This is not a guarantee to protect your admin email from being leaked, it's a basic measure to make it harder to be crawled.
 
 -   `common.config.js`: This file includes common configuration values that don't deserve their own file. Currently this is the Sentry URL and the Fanart.tv API key. It looks like this:
 
