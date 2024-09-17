@@ -4,7 +4,6 @@ import { html } from 'lit-html';
 
 import { changeTrackSearchInput, eraseTrackSearchInput } from '../actions/view-party';
 import { State } from '../state';
-import festifyLogo from '../util/festify-logo';
 import sharedStyles from '../util/shared-styles';
 
 interface SearchBarProps {
@@ -76,7 +75,7 @@ const SearchBar = (props: SearchBarProps & SearchBarDispatch) => html`
               <paper-icon-button icon="festify:arrow-back" @click=${props.eraseText}>
               </paper-icon-button>
           `
-        : festifyLogo}
+        : null}
 
     <input
         value="${props.text}"

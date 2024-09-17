@@ -24,6 +24,7 @@ export const store = createStore(
 );
 
 for (const s of sagas) {
+    // @ts-ignore
     saga.run(s);
 }
 

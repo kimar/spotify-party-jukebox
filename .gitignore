@@ -20,6 +20,7 @@ functions/**/*.js
 functions/**/*.js.map
 
 # Config
+.firebaserc
 common.config.js
 firebase.config.js
 database.rules.json
@@ -29,6 +30,9 @@ google-services.json
 spotify.config.js
 service-account.json
 functions/spotify.config.ts
+
+# Allowed admins
+src/admins.ts
 
 # IDE
 .idea/

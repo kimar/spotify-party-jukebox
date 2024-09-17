@@ -30,7 +30,7 @@ export default {
     output: {
         file: dist('index.js'),
         format: 'iife',
-        sourcemap: true,
+        sourcemap: process.env.NODE_ENV !== "production",
     },
     plugins: [
         replace({

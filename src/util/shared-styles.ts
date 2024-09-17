@@ -79,6 +79,10 @@ export default html`
             background: #1da1f2;
         }
 
+        paper-button.clear {
+            background: transparent;
+        }
+
         @media (min-width: 420px) {
             paper-button.login span {
                 display: inline;
